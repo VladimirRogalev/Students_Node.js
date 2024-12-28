@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da50b409-7eed-44ef-a12f-b2ec978026c5" name="Changes" comment="">
+    <list default="true" id="da50b409-7eed-44ef-a12f-b2ec978026c5" name="Changes" comment="implemented a method for deleting students">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.txt" beforeDir="false" afterPath="$PROJECT_DIR$/db.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/StudentController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/StudentController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/studentRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/studentRoutes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/StudentService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/StudentService.ts" afterDir="false" />
@@ -89,11 +88,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1735384057204</updated>
-      <workItem from="1735384058336" duration="13358000" />
+      <workItem from="1735384058336" duration="14402000" />
     </task>
+    <task id="LOCAL-00001" summary="implemented a method for deleting students">
+      <option name="closed" value="true" />
+      <created>1735398350079</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1735398350079</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="implemented a method for deleting students" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented a method for deleting students" />
   </component>
 </project>

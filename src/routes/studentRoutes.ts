@@ -36,9 +36,20 @@ router.delete('',
     } else {
         res.status(404).send(`Student id: ${id} was not found`)
     }
-
-
 }))
+
+router.get('',
+    query("id").isInt(),
+    validationMiddleware,
+    asyncHandler(async (req, res) =>{
+        const id = Number(req.query.id);
+        const student = await studentController.getStudent(id);
+        if(student){
+            res.status(200).send({student});
+        } else {
+            res.status(404).send(`Student id: ${id} was not found`)
+        }
+    }))
 
 
 export default router;

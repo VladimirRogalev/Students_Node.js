@@ -26,4 +26,14 @@ export default class StudentServiceImpl implements StudentService{
         return deleteStudent;
     }
 
+    getStudent(id: number): Student | null {
+
+        const students = this.studentRepository.readAll();
+        const student = students.find(value => value.id===id);
+        if (!student) {
+            return null;
+        }
+        return student;
+    }
+
 }

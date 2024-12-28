@@ -17,4 +17,8 @@ export default class  StudentController{
     async deleteStudent (id: number) {
         return this.studentService.deleteStudent(id);
     }
+
+    async getStudent(id: number) {
+        return this.studentService.getStudent(id);
+    }
 }
