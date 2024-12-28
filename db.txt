@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Alex",
+    "scores": {
+      "math": 93,
+      "eng": 98,
+      "art": 45
+    }
+  },
+  {
+    "id": 2,
+    "name": "David",
+    "scores": {
+      "math": 45,
+      "eng": 68,
+      "art": 89
+    }
+  },
+  {
+    "id": 3,
+    "name": "Mike",
+    "scores": {
+      "math": 69,
+      "eng": 68,
+      "art": 65
+    }
+  },
+  {
+    "id": 4,
+    "name": "Ronald",
+    "scores": {
+      "math": 47,
+      "eng": 86,
+      "art": 56
+    }
+  }
+]
