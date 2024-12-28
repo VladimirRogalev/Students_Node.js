@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da50b409-7eed-44ef-a12f-b2ec978026c5" name="Changes" comment="" />
+    <list default="true" id="da50b409-7eed-44ef-a12f-b2ec978026c5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.txt" beforeDir="false" afterPath="$PROJECT_DIR$/db.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/StudentController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/StudentController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/studentRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/studentRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/StudentService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/StudentService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/StudentServiceImpl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/StudentServiceImpl.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +24,21 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "VladimirRogalev"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/VladimirRogalev/Students_Node.js.git",
+    "accountId": "7850de63-df79-4904-b1b3-082ee941941d"
+  }
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
@@ -24,6 +46,7 @@
   "associatedIndex": 1
 }]]></component>
   <component name="ProjectId" id="2qqJE1X6yAOLS3TRSOL6Ruv07R2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,6 +54,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Java-56_BackEnd_Nodejs/10_HW_Students",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -65,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1735384057204</updated>
-      <workItem from="1735384058336" duration="11818000" />
+      <workItem from="1735384058336" duration="13358000" />
     </task>
     <servers />
   </component>

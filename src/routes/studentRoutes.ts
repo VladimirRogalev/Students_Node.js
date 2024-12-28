@@ -1,9 +1,10 @@
 import {Router} from 'express';
 import StudentController from '../controller/StudentController';
 import StudentServiceImpl from '../services/StudentServiceImpl';
-import {body} from 'express-validator';
+import {body, query} from 'express-validator';
 import validationMiddleware from '../middleware/validationMiddleware';
-import AsyncHandler from 'express-async-handler';
+import asyncHandler from 'express-async-handler';
+
 
 
 const router = Router();
@@ -24,6 +25,20 @@ router.post('',
             res.status(404).send(`Student with id: ${studentDto.id} is already exist`);
         }
     });
+router.delete('',
+    query("id").isInt(),
+    validationMiddleware,
+    asyncHandler(async (req, res) =>{
+    const id = Number(req.query.id);
+    const student = await studentController.deleteStudent(id);
+    if(student){
+        res.status(200).send({student});
+    } else {
+        res.status(404).send(`Student id: ${id} was not found`)
+    }
+
+
+}))
 
 
 export default router;

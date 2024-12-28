@@ -15,4 +15,15 @@ export default class StudentServiceImpl implements StudentService{
         return this.studentRepository.writeAll(students);
     }
 
+    deleteStudent(id: number): Student | null {
+        const students = this.studentRepository.readAll();
+        const index = students.findIndex(value => value.id===id);
+        if (index===-1) {
+            return null;
+        }
+        const [deleteStudent] = students.splice(index,1);
+        this.studentRepository.writeAll(students)
+        return deleteStudent;
+    }
+
 }

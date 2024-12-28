@@ -13,4 +13,8 @@ export default class  StudentController{
     addStudent(studentDto: Student) {
         return this.studentService.addStudent(studentDto as Student)
     }
+
+    async deleteStudent (id: number) {
+        return this.studentService.deleteStudent(id);
+    }
 }
