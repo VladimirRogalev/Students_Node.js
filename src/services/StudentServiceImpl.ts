@@ -56,4 +56,12 @@ export default class StudentServiceImpl implements StudentService {
         return students;
     }
 
+    getStudentsByName(name: any): number {
+        const students = this.studentRepository.readAll();
+        return students.filter(value => value.name===name).length
+
+    }
+
+
+
 }

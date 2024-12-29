@@ -10,4 +10,6 @@ export default interface StudentService{
     updateStudent(id: number, studentDto: any): Student | null;
 
     getQuantityStudents(): number;
+
+    getStudentsByName(name: any):number;
 }

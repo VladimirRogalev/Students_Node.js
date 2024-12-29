@@ -29,4 +29,8 @@ export default class  StudentController{
     async getQuantityStudents() {
         return this.studentService.getQuantityStudents()
     }
+
+    async getStudentsByName(name: any) {
+        return this.studentService.getStudentsByName(name)
+    }
 }

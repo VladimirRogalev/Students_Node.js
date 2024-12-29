@@ -72,4 +72,17 @@ router.get('/quantity/students',
         }
     }))
 
+router.get('/student',
+    query("name").isString(),
+    validationMiddleware,
+    asyncHandler(async (req, res) =>{
+        const name = req.query.name;
+        const students = await studentController.getStudentsByName(name);
+        if(students){
+            res.status(200).send({students});
+        } else {
+            res.status(404).send(`Student with name: ${name} was not found`)
+        }
+    }))
+
 export default router;
