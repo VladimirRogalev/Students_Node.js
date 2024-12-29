@@ -8,4 +8,6 @@ export default interface StudentService{
     getStudent(id: number): Student |null;
 
     updateStudent(id: number, studentDto: any): Student | null;
+
+    getQuantityStudents(): number;
 }

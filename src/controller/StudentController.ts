@@ -25,4 +25,8 @@ export default class  StudentController{
     updateStudent(id: number, studentDto: any) {
         return this.studentService.updateStudent(id, studentDto);
     }
+
+    async getQuantityStudents() {
+        return this.studentService.getQuantityStudents()
+    }
 }

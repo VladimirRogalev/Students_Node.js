@@ -10,7 +10,7 @@ const router = Router();
 
 const studentService = new StudentServiceImpl();
 const studentController = new StudentController(studentService);
-router.post('',
+router.post('/student',
     body('id').isInt(),
     body('name').isString(),
     body('scores').isObject(),
@@ -24,7 +24,7 @@ router.post('',
             res.status(404).send(`Student with id: ${studentDto.id} is already exist`);
         }
     });
-router.delete('',
+router.delete('/student',
     query("id").isInt(),
     validationMiddleware,
     asyncHandler(async (req, res) =>{
@@ -37,7 +37,7 @@ router.delete('',
     }
 }))
 
-router.get('',
+router.get('/student',
     query("id").isInt(),
     validationMiddleware,
     asyncHandler(async (req, res) =>{
@@ -50,7 +50,7 @@ router.get('',
         }
     }))
 
-router.put('',
+router.put('/student',
     query('id').isInt(),
     body('scores').isObject(),
 
@@ -59,11 +59,17 @@ router.put('',
         const studentDto = req.body;
         const student = studentController.updateStudent(id, studentDto);
         if (student) {
-            res.status(200).send({student});
+            res.status(200).send(`Student with id: ${id} is updated with scores ${JSON.stringify(studentDto)}`);
         } else {
             res.status(404).send(`Student with id: ${id} is not found`);
         }
     });
-
+router.get('/quantity/students',
+    asyncHandler(async (req, res) =>{
+        const students = await studentController.getQuantityStudents();
+        if(students){
+            res.status(200).send(`Students = ${students}`);
+        }
+    }))
 
 export default router;

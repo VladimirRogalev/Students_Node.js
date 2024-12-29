@@ -6,7 +6,7 @@ const PORT = 3000;
 
 app.use(express.json());
 
-app.use('/api/student', studentRoutes);
+app.use('/api', studentRoutes);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction)=>{
     console.error(err.message);

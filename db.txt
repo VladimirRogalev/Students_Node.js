@@ -43,5 +43,23 @@
       "eng": 2,
       "art": 2
     }
+  },
+  {
+    "id": 7,
+    "name": "Josefina",
+    "scores": {
+      "math": 76,
+      "eng": 77,
+      "art": 78
+    }
+  },
+  {
+    "id": 8,
+    "name": "Vladimir",
+    "scores": {
+      "math": 95,
+      "eng": 95,
+      "art": 95
+    }
   }
 ]
