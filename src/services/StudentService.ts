@@ -6,4 +6,6 @@ export default interface StudentService{
     deleteStudent(id: number): Student | null;
 
     getStudent(id: number): Student |null;
+
+    updateStudent(id: number, studentDto: any): Student | null;
 }

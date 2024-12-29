@@ -1,11 +1,11 @@
 [
   {
-    "id": 2,
-    "name": "David",
+    "id": 1,
+    "name": "Marya",
     "scores": {
-      "math": 45,
-      "eng": 68,
-      "art": 89
+      "math": 89,
+      "eng": 76,
+      "art": 83
     }
   },
   {
@@ -21,9 +21,27 @@
     "id": 4,
     "name": "Ronald",
     "scores": {
-      "math": 47,
-      "eng": 86,
-      "art": 56
+      "math": 1,
+      "eng": 1,
+      "art": 1
+    }
+  },
+  {
+    "id": 5,
+    "name": "Donald",
+    "scores": {
+      "math": 2,
+      "eng": 2,
+      "art": 2
+    }
+  },
+  {
+    "id": 6,
+    "name": "Marya",
+    "scores": {
+      "math": 2,
+      "eng": 2,
+      "art": 2
     }
   }
 ]

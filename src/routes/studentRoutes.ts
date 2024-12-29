@@ -6,7 +6,6 @@ import validationMiddleware from '../middleware/validationMiddleware';
 import asyncHandler from 'express-async-handler';
 
 
-
 const router = Router();
 
 const studentService = new StudentServiceImpl();
@@ -50,6 +49,21 @@ router.get('',
             res.status(404).send(`Student id: ${id} was not found`)
         }
     }))
+
+router.put('',
+    query('id').isInt(),
+    body('scores').isObject(),
+
+    validationMiddleware, (req, res) => {
+        const id = Number(req.query.id);
+        const studentDto = req.body;
+        const student = studentController.updateStudent(id, studentDto);
+        if (student) {
+            res.status(200).send({student});
+        } else {
+            res.status(404).send(`Student with id: ${id} is not found`);
+        }
+    });
 
 
 export default router;

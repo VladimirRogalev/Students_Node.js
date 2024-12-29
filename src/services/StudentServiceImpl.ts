@@ -2,6 +2,8 @@ import StudentService from './StudentService';
 import Student from '../models/Student';
 import StudentRepository from '../dao/StudentRepository';
 
+
+
 export default class StudentServiceImpl implements StudentService{
     private studentRepository = new StudentRepository();
 
@@ -12,6 +14,7 @@ export default class StudentServiceImpl implements StudentService{
             return false;
         }
         students.push(student)
+        students.sort((a, b) => a.id-b.id)
         return this.studentRepository.writeAll(students);
     }
 
@@ -33,6 +36,20 @@ export default class StudentServiceImpl implements StudentService{
         if (!student) {
             return null;
         }
+        return student;
+    }
+
+    updateStudent(id: number, studentDto: any): Student | null {
+        const students = this.studentRepository.readAll();
+        const student = students.find(value => value.id===id);
+        if (!student) {
+            return null;
+        }
+        if(studentDto.scores) {
+            student.scores=studentDto.scores
+        }
+
+        this.studentRepository.writeAll(students)
         return student;
     }
 
