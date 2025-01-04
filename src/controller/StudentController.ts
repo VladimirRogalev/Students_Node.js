@@ -30,7 +30,12 @@ export default class  StudentController{
         return this.studentService.getQuantityStudents()
     }
 
-    async getStudentsByName(name: any) {
+     getStudentsByName(name: string) {
         return this.studentService.getStudentsByName(name)
     }
+
+
+     getAverageScoreByExam(exam: string) {
+        return this.studentService.getAverageScoreByExam(exam)
+}
 }

@@ -11,5 +11,7 @@ export default interface StudentService{
 
     getQuantityStudents(): number;
 
-    getStudentsByName(name: any):number;
+    getStudentsByName(name: any): number;
+
+    getAverageScoreByExam(exam: any) : number;
 }

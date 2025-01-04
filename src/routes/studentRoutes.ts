@@ -25,30 +25,47 @@ router.post('/student',
         }
     });
 router.delete('/student',
-    query("id").isInt(),
+    query('id').isInt(),
     validationMiddleware,
-    asyncHandler(async (req, res) =>{
-    const id = Number(req.query.id);
-    const student = await studentController.deleteStudent(id);
-    if(student){
-        res.status(200).send({student});
-    } else {
-        res.status(404).send(`Student id: ${id} was not found`)
-    }
-}))
-
-router.get('/student',
-    query("id").isInt(),
-    validationMiddleware,
-    asyncHandler(async (req, res) =>{
-        const id = Number(req.query.id);
-        const student = await studentController.getStudent(id);
-        if(student){
+    asyncHandler(async (req, res) => {
+        const {id} = req.query;
+        const student = await studentController.deleteStudent(Number(id));
+        if (student) {
             res.status(200).send({student});
         } else {
-            res.status(404).send(`Student id: ${id} was not found`)
+            res.status(404).send(`Student id: ${id} was not found`);
         }
-    }))
+    }));
+
+router.get('/student',
+    query('id').optional().isInt().notEmpty(),
+    query('name').optional().isString().notEmpty(),
+    validationMiddleware,
+    asyncHandler(async (req, res, next) => {
+        const {id, name} = req.query;
+        switch (true) {
+            case !!id:
+                const student = await studentController.getStudent(Number(id));
+                if (student) {
+                    res.status(200).send({student});
+                } else {
+                    res.status(404).send(`Student id: ${id} was not found`);
+                    next();
+                }
+                break;
+
+            case !!name:
+                const students = studentController.getStudentsByName(name as string);
+                if (students) {
+                    res.status(200).send({students});
+                } else {
+                    res.status(404).send(`Student with name: ${name} was not found`);
+                    next();
+                }
+                break;
+
+        }
+    }));
 
 router.put('/student',
     query('id').isInt(),
@@ -65,24 +82,24 @@ router.put('/student',
         }
     });
 router.get('/quantity/students',
-    asyncHandler(async (req, res) =>{
+    asyncHandler(async (req, res) => {
         const students = await studentController.getQuantityStudents();
-        if(students){
+        if (students) {
             res.status(200).send(`Students = ${students}`);
         }
-    }))
+    }));
 
-router.get('/student',
-    query("name").isString(),
+router.get('/students',
+    query('exam').isString().notEmpty(),
     validationMiddleware,
-    asyncHandler(async (req, res) =>{
-        const name = req.query.name;
-        const students = await studentController.getStudentsByName(name);
-        if(students){
-            res.status(200).send({students});
-        } else {
-            res.status(404).send(`Student with name: ${name} was not found`)
+    asyncHandler(async (req, res) => {
+        const  {exam}= req.query;
+        const students =  studentController.getAverageScoreByExam(exam as string);
+        if (students) {
+            res.status(200).send(`Average ${exam} score  = ${students}`);
         }
-    }))
+    }));
+
+
 
 export default router;

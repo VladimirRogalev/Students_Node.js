@@ -56,12 +56,38 @@ export default class StudentServiceImpl implements StudentService {
         return students;
     }
 
-    getStudentsByName(name: any): number {
+    getStudentsByName(name: string): number {
         const students = this.studentRepository.readAll();
-        return students.filter(value => value.name===name).length
+        return students.filter(value => value.name === name).length;
 
     }
 
+    getAverageScoreByExam(exam: string): number {
+        const students = this.studentRepository.readAll();
+        if (!students || students.length === 0) {
+            throw new Error('No students found to calculate the average');
+        }
+        let totalScore = 0;
+
+
+        for (const student of students) {
+
+            switch (exam.toLowerCase()) {
+                case 'math':
+                    totalScore += student.scores.math;
+                    break;
+                case 'eng':
+                    totalScore += student.scores.eng;
+                    break;
+                case 'art':
+                    totalScore += student.scores.art;
+                    break;
+                default:
+                    throw new Error(`Invalid exam name: ${exam}`);
+            }
+        }
+        return totalScore / students.length;
+    }
 
 
 }
