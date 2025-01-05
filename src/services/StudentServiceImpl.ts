@@ -14,7 +14,8 @@ export default class StudentServiceImpl implements StudentService {
         }
         students.push(student);
         students.sort((a, b) => a.id - b.id);
-        return this.studentRepository.writeAll(students);
+        this.studentRepository.writeAll(students);
+        return true;
     }
 
     deleteStudent(id: number): Student | null {
@@ -44,9 +45,8 @@ export default class StudentServiceImpl implements StudentService {
         if (!student) {
             return null;
         }
-        if (studentDto.scores) {
-            student.scores = studentDto.scores;
-        }
+        student.name = studentDto.name;
+        student.password = studentDto.password;
         this.studentRepository.writeAll(students);
         return student;
     }

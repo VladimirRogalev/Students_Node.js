@@ -1,20 +1,20 @@
-interface Score {
-    math: number;
-    eng:number;
-    art:number;
-}
+// interface Score {
+//     math: number;
+//     eng:number;
+//     art:number;
+// }
 
 export default class Student {
 
     private readonly _id: number;
     private _name: string;
-    private _scores: Score
+    private _password: number
 
 
-    constructor(id: number, name: string, scores: Score) {
+    constructor(id: number, name: string, password: number) {
         this._id = id;
         this._name = name;
-        this._scores = scores;
+        this._password = password;
     }
 
 
@@ -26,15 +26,16 @@ export default class Student {
         return this._name;
     }
 
-    get scores(): Score {
-        return this._scores;
-    }
-
     set name(value: string) {
         this._name = value;
     }
 
-    set scores(value: Score) {
-        this._scores = value;
+
+    get password(): number {
+        return this._password;
+    }
+
+    set password(value: number) {
+        this._password = value;
     }
 }

@@ -10,7 +10,7 @@ export default class  StudentController{
         this.studentService = studentService;
     }
 
-    addStudent(studentDto: Student) {
+    async addStudent(studentDto: Student) {
         return this.studentService.addStudent(studentDto as Student)
     }
 

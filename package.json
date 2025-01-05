@@ -11,7 +11,7 @@
     "express-async-handler": "^1.2.0",
     "express-validator": "^7.2.0"
   },
-  "name": "10_hw_students",
+  "name": "11_hw_students",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

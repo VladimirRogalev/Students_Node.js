@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3870d673-1f17-4fe8-8344-b7de050c6ca1",
+		"_postman_id": "de0ca048-e907-4a99-84bc-9866bff03ddc",
 		"name": "Students",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23931383"
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\":1,\r\n    \"name\": \"John\",\r\n    \"scores\": {\r\n        \"math\": 90,\r\n        \"eng\": 99,\r\n        \"art\": 55\r\n    }\r\n}",
+					"raw": "{\n    \"id\": 1000,\n\t\"name\": \"Peter\",\n\t\"password\": \"1234\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,71 +21,355 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/student",
+					"raw": "http://localhost:8080/student",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "8080",
 					"path": [
-						"api",
 						"student"
 					]
-				}
+				},
+				"description": "add student to base"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Add student",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1000,\n\t\"name\": \"Peter\",\n\t\"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 09 Dec 2021 12:21:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "true"
+				},
+				{
+					"name": "Add student",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1000,\n\t\"name\": \"Peter\",\n\t\"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Dec 2021 09:26:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "false"
+				}
+			]
 		},
 		{
-			"name": "Get student",
+			"name": "Find student",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/student?id=1",
+					"raw": "http://localhost:8080/student/{{id}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "8080",
 					"path": [
-						"api",
-						"student"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
+						"student",
+						"{{id}}"
 					]
-				}
+				},
+				"description": "find student by id"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Find student",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/student/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Dec 2021 13:59:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1000,\n    \"name\": \"Peter\",\n    \"scores\": {\n        \"Math\": 95\n    }\n}"
+				},
+				{
+					"name": "Fund student",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/student/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Dec 2021 10:46:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-12-12T10:46:27.581+00:00\",\n    \"status\": 404,\n    \"error\": \"Not Found\",\n    \"message\": \"Student with id 1000 not found\",\n    \"path\": \"/student/1000\"\n}"
+				}
+			]
 		},
 		{
-			"name": "Delete student",
+			"name": "Remove student",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/student?id=1",
+					"raw": "http://localhost:8080/student/{{id}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "8080",
 					"path": [
-						"api",
-						"student"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
+						"student",
+						"{{id}}"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Remove student",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/student/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Dec 2021 13:57:45 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2000,\n    \"name\": \"Peter\",\n    \"scores\": {}\n}"
+				},
+				{
+					"name": "Remove student",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/student/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Dec 2021 10:46:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-12-12T10:46:27.581+00:00\",\n    \"status\": 404,\n    \"error\": \"Not Found\",\n    \"message\": \"Student with id 1000 not found\",\n    \"path\": \"/student/1000\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Update student",
@@ -94,7 +378,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"scores\": {\r\n        \"math\": 75,\r\n        \"eng\": 68,\r\n        \"art\": 42\r\n    }\r\n}",
+					"raw": "{\n\t\"name\": \"Peter\",\n\t\"password\": \"1234\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -102,98 +386,547 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/student?id=1",
+					"raw": "http://localhost:8080/student/{{id}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "8080",
 					"path": [
-						"api",
-						"student"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
+						"student",
+						"{{id}}"
 					]
-				}
+				},
+				"description": "update name nd password"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Update student",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Peter\",\n\t\"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Dec 2021 13:58:25 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2000,\n    \"name\": \"Peter\",\n    \"password\": \"1234\"\n}"
+				},
+				{
+					"name": "Update student",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Peter\",\n\t\"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Dec 2021 10:46:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-12-12T10:46:27.581+00:00\",\n    \"status\": 404,\n    \"error\": \"Not Found\",\n    \"message\": \"Student with id 1000 not found\",\n    \"path\": \"/student/1000\"\n}"
+				}
+			]
 		},
 		{
-			"name": "Get quantity students",
+			"name": "Add score",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"examName\": \"Math\",\n\t\"score\": 95\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/score/student/{{id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"score",
+						"student",
+						"{{id}}"
+					]
+				},
+				"description": "add score to student"
+			},
+			"response": [
+				{
+					"name": "Add score",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"examName\": \"Math\",\n\t\"score\": 95\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/score/student/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"score",
+								"student",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Dec 2021 13:59:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "true"
+				},
+				{
+					"name": "Add score",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"examName\": \"Math\",\n\t\"score\": 95\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/score/student/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"score",
+								"student",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Dec 2021 09:08:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-12-12T09:08:10.080+00:00\",\n    \"status\": 404,\n    \"error\": \"Not Found\",\n    \"message\": \"student not found\",\n    \"path\": \"/score/student/1000\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Find students by name",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/quantity/students",
+					"raw": "http://localhost:8080/students/name/{{name}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "8080",
 					"path": [
-						"api",
+						"students",
+						"name",
+						"{{name}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Find students by name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/students/name/{{name}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students",
+								"name",
+								"{{name}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Dec 2021 11:57:06 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2000,\n        \"name\": \"Peter\",\n        \"scores\": {\n            \"History\": 98\n        }\n    },\n    {\n        \"id\": 1000,\n        \"name\": \"Peter\",\n        \"scores\": {\n            \"Math\": 90,\n            \"History\": 95\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Students quantity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"John\", \"Peter\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/quantity/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
 						"quantity",
 						"students"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Students quantity",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"John\", \"Peter\"]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quantity/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quantity",
+								"students"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 13 Dec 2021 12:35:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "3"
+				}
+			]
 		},
 		{
-			"name": "Get students by Name",
+			"name": "Find students by min score",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/student?name=John",
+					"raw": "http://localhost:8080/students/exam/{{exam}}/minscore/{{minScore}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "8080",
 					"path": [
-						"api",
-						"student"
-					],
-					"query": [
-						{
-							"key": "name",
-							"value": "John"
-						}
+						"students",
+						"exam",
+						"{{exam}}",
+						"minscore",
+						"{{minScore}}"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Find students by min score",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/students/exam/{{exam}}/minscore/{{minScore}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students",
+								"exam",
+								"{{exam}}",
+								"minscore",
+								"{{minScore}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 13 Dec 2021 13:55:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2000,\n        \"name\": \"Peter\",\n        \"scores\": {\n            \"History\": 92,\n            \"Math\": 77\n        }\n    },\n    {\n        \"id\": 4000,\n        \"name\": \"Mary\",\n        \"scores\": {\n            \"History\": 98\n        }\n    }\n]"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		},
 		{
-			"name": "Get average score By Exam",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/students?exam=math",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"students"
-					],
-					"query": [
-						{
-							"key": "exam",
-							"value": "math"
-						}
-					]
-				}
-			},
-			"response": []
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "2000"
+		},
+		{
+			"key": "name",
+			"value": "peter"
+		},
+		{
+			"key": "minScore",
+			"value": "90"
+		},
+		{
+			"key": "exam",
+			"value": "History"
 		}
 	]
 }

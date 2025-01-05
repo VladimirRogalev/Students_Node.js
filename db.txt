@@ -1,74 +1,22 @@
 [
   {
-    "id": 1,
-    "name": "Marya",
-    "scores": {
-      "math": 89,
-      "eng": 76,
-      "art": 83
-    }
+    "id": 1000,
+    "name": "Peter",
+    "password": "1234"
   },
   {
-    "id": 3,
-    "name": "Mike",
-    "scores": {
-      "math": 69,
-      "eng": 68,
-      "art": 65
-    }
+    "id": 1001,
+    "name": "Peter",
+    "password": "1234"
   },
   {
-    "id": 4,
-    "name": "Ronald",
-    "scores": {
-      "math": 1,
-      "eng": 1,
-      "art": 1
-    }
+    "id": 1002,
+    "name": "Lucas",
+    "password": "3333"
   },
   {
-    "id": 5,
-    "name": "Donald",
-    "scores": {
-      "math": 2,
-      "eng": 2,
-      "art": 2
-    }
-  },
-  {
-    "id": 6,
-    "name": "Marya",
-    "scores": {
-      "math": 2,
-      "eng": 2,
-      "art": 2
-    }
-  },
-  {
-    "id": 7,
-    "name": "Josefina",
-    "scores": {
-      "math": 76,
-      "eng": 77,
-      "art": 78
-    }
-  },
-  {
-    "id": 8,
-    "name": "Vladimir",
-    "scores": {
-      "math": 95,
-      "eng": 95,
-      "art": 95
-    }
-  },
-  {
-    "id": 9,
-    "name": "Mike",
-    "scores": {
-      "math": 95,
-      "eng": 95,
-      "art": 95
-    }
+    "id": 1005,
+    "name": "Masha",
+    "password": "1234"
   }
 ]

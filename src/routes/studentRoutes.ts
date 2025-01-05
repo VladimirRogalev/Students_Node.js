@@ -1,7 +1,7 @@
 import {Router} from 'express';
 import StudentController from '../controller/StudentController';
 import StudentServiceImpl from '../services/StudentServiceImpl';
-import {body, query} from 'express-validator';
+import {body, param, query} from 'express-validator';
 import validationMiddleware from '../middleware/validationMiddleware';
 import asyncHandler from 'express-async-handler';
 
@@ -11,74 +11,60 @@ const router = Router();
 const studentService = new StudentServiceImpl();
 const studentController = new StudentController(studentService);
 router.post('/student',
-    body('id').isInt(),
-    body('name').isString(),
-    body('scores').isObject(),
-
-    validationMiddleware, (req, res) => {
+    body('id').isInt().notEmpty(),
+    body('name').isString().notEmpty(),
+    body('password').isInt().notEmpty(),
+    validationMiddleware, asyncHandler(async (req, res) => {
         const studentDto = req.body;
-        const isSuccess = studentController.addStudent(studentDto);
-        if (isSuccess) {
-            res.status(200).send('Okay');
-        } else {
-            res.status(404).send(`Student with id: ${studentDto.id} is already exist`);
-        }
-    });
-router.delete('/student',
-    query('id').isInt(),
-    validationMiddleware,
-    asyncHandler(async (req, res) => {
-        const {id} = req.query;
-        const student = await studentController.deleteStudent(Number(id));
-        if (student) {
-            res.status(200).send({student});
-        } else {
-            res.status(404).send(`Student id: ${id} was not found`);
-        }
-    }));
+        const isSuccess = await studentController.addStudent(studentDto);
+            res.status(200).send(isSuccess)
 
-router.get('/student',
-    query('id').optional().isInt().notEmpty(),
-    query('name').optional().isString().notEmpty(),
+    }));
+router.delete('/student/:id',
+    param('id').isInt().notEmpty(),
     validationMiddleware,
     asyncHandler(async (req, res, next) => {
-        const {id, name} = req.query;
-        switch (true) {
-            case !!id:
-                const student = await studentController.getStudent(Number(id));
-                if (student) {
-                    res.status(200).send({student});
-                } else {
-                    res.status(404).send(`Student id: ${id} was not found`);
-                    next();
-                }
-                break;
-
-            case !!name:
-                const students = studentController.getStudentsByName(name as string);
-                if (students) {
-                    res.status(200).send({students});
-                } else {
-                    res.status(404).send(`Student with name: ${name} was not found`);
-                    next();
-                }
-                break;
-
+        const id = req.params.id;
+        const student = await studentController.deleteStudent(Number(id));
+        if (student) {
+            res.status(200).json({id:student.id, name:student.name});
+        } else {
+            const error = new Error(`Student id: ${id} was not found`);
+            (error as any).status = 404;
+             next(error);
         }
     }));
 
-router.put('/student',
-    query('id').isInt(),
-    body('scores').isObject(),
+router.get('/student/:id',
+    param('id').isInt().notEmpty(),
+    validationMiddleware,
+    asyncHandler(async (req, res, next) => {
+        const id= req.params.id;
+                const student = await studentController.getStudent(Number(id));
+                if (student) {
+                    res.status(200).json({id:student.id, name:student.name});
+                } else {
+                    const error = new Error(`Student id: ${id} was not found`);
+                    (error as any).status = 404;
+                      next(error);
+                    }
 
-    validationMiddleware, (req, res) => {
-        const id = Number(req.query.id);
+    }));
+
+router.put('/student/:id',
+    param('id').isInt().notEmpty(),
+    body('name').isString(),
+    body('password').isInt(),
+    validationMiddleware, (req, res, next) => {
+        const id= req.params.id;
         const studentDto = req.body;
-        const student = studentController.updateStudent(id, studentDto);
+        const student = studentController.updateStudent(+id, studentDto);
         if (student) {
-            res.status(200).send(`Student with id: ${id} is updated with scores ${JSON.stringify(studentDto)}`);
+            res.status(200).send(student);
         } else {
-            res.status(404).send(`Student with id: ${id} is not found`);
+            const error = new Error(`Student id: ${id} was not found`);
+            (error as any).status = 404;
+            next(error);
         }
     });
 router.get('/quantity/students',
