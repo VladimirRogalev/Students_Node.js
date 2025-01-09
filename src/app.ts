@@ -1,6 +1,6 @@
 import express, {Application} from 'express';
 import studentRoutes from './routes/studentRoutes';
-import errorMiddleware from './middleware/errorMiddleware';
+import errorMiddleware from './students/middleware/errorMiddleware';
 
 const app: Application = express();
 const PORT = 8080;

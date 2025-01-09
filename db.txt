@@ -2,21 +2,49 @@
   {
     "id": 1000,
     "name": "Peter",
-    "password": "1234"
+    "password": "1234",
+    "scores": {
+      "Eng": 95
+    }
   },
   {
     "id": 1001,
-    "name": "Peter",
-    "password": "1234"
+    "name": "Josef",
+    "password": "3456",
+    "scores": {
+      "Eng": 91
+    }
   },
   {
     "id": 1002,
     "name": "Lucas",
-    "password": "3333"
+    "password": "3333",
+    "scores": {
+      "Math": 95
+    }
+  },
+  {
+    "id": 1003,
+    "name": "Peter",
+    "password": "1234",
+    "scores": {
+      "Eng": 99
+    }
+  },
+  {
+    "id": 1004,
+    "name": "Peter",
+    "password": "1234",
+    "scores": {
+      "Art": 67
+    }
   },
   {
     "id": 1005,
-    "name": "Masha",
-    "password": "1234"
+    "name": "Peter",
+    "password": "1234",
+    "scores": {
+      "Art": 89
+    }
   }
 ]
